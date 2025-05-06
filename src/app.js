@@ -15,7 +15,10 @@ let tasks = [
 
 function addTask() {
   const taskText = taskInput.value;
-  if (taskText === "") return;
+  if (taskText === "") {
+    alert("Please enter a task");
+    return;
+  }
 
   const task = {
     text: taskText,
