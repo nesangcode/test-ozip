@@ -44,10 +44,10 @@ function renderTasks() {
     li.addEventListener("click", () => toggleTask(indexInAllTasks));
 
     const deleteBtn = document.createElement("button");
-    deleteBtn.textContent = "🗑️";
+    deleteBtn.textContent = "Delete";
     deleteBtn.style.marginLeft = "10px";
     deleteBtn.addEventListener("click", (e) => {
-      e.stopPropagation(); // agar tidak trigger toggleTask
+      e.stopPropagation();
       deleteTask(indexInAllTasks);
     });
 
