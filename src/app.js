@@ -1,6 +1,17 @@
 const taskInput = document.getElementById("taskInput");
 const taskList = document.getElementById("taskList");
-let tasks = [];
+let tasks = [
+  {
+    text: "Task 1",
+    completed: false,
+    createdAt: new Date(),
+  },
+  {
+    text: "Task 2",
+    completed: true,
+    createdAt: new Date(),
+  },
+];
 
 function addTask() {
   const taskText = taskInput.value;
@@ -9,8 +20,10 @@ function addTask() {
   const task = {
     text: taskText,
     completed: false,
-    createdAt: new Date()
+    createdAt: new Date(),
   };
+
+  taskInput.value = "";
 
   tasks.push(task);
   renderTasks();
@@ -21,7 +34,7 @@ function renderTasks() {
   tasks.forEach((task, index) => {
     const li = document.createElement("li");
     li.textContent = task.text;
-    if (task.completed = true) { 
+    if (task.completed) {
       li.style.textDecoration = "line-through";
     }
 
@@ -34,3 +47,5 @@ function toggleTask(index) {
   tasks[index].completed = !tasks[index].completed;
   renderTasks();
 }
+
+window.addEventListener("DOMContentLoaded", renderTasks);
