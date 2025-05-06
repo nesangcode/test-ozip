@@ -34,13 +34,12 @@ function renderTasks() {
 
     filteredTasks.forEach((task) => {
         const indexInAllTasks = tasks.indexOf(task);
+    const li = document.createElement("li");
+    li.textContent = task.text;
 
-        const li = document.createElement("li");
-        li.textContent = task.text;
-        if (task.completed) {
-            li.style.textDecoration = "line-through";
-        }
-
+    if (task.completed) {
+      li.style.textDecoration = "line-through";
+    }
         li.addEventListener("click", () => toggleTask(indexInAllTasks));
         taskList.appendChild(li);
     });
